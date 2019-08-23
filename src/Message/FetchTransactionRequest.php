@@ -51,7 +51,7 @@ class FetchTransactionRequest extends AbstractRequest
         return [];
     }
 
-    protected function getEndpoint()
+    public function getEndpoint()
     {
         $data                          = $this->getDefaultParameters();
         $data['hash']                  = $this->getTransactionReference();

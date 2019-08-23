@@ -63,7 +63,7 @@ class CreateCardRequest extends AbstractRequest
         return $data;
     }
 
-    protected function getEndpoint()
+    public function getEndpoint()
     {
         return parent::getEndpoint() . '/token';
     }

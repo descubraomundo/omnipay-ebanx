@@ -92,7 +92,7 @@ class PaymentPageRequest extends AbstractRequest
     }
 
 
-    protected function getEndpoint()
+    public function getEndpoint()
     {
         return parent::getEndpoint() . '/request';
     }
