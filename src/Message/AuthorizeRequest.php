@@ -2,9 +2,7 @@
 /**
  * Ebanx Authorize Request
  */
-
 namespace Omnipay\Ebanx\Message;
-
 /**
  * Ebanx Authorize Request
  *
@@ -82,8 +80,8 @@ namespace Omnipay\Ebanx\Message;
  *   }
  * </code>
  *
- * @see \Omnipay\Ebanx\Gateway
- * @see \Omnipay\Ebanx\Message\CaptureRequest
+ * @see  \Omnipay\Ebanx\Gateway
+ * @see  \Omnipay\Ebanx\Message\CaptureRequest
  * @link https://developers.ebanxpagamentos.com/api-reference/ebanx-payment-api/ebanx-payment-guide/guide-create-a-payment/brazil/
  */
 
@@ -91,23 +89,23 @@ class AuthorizeRequest extends AbstractRequest
 {
     public function getData()
     {
-        $this->validate('card','amount','currency','transactionId','documentNumber');
+        $this->validate('card', 'amount', 'currency', 'transactionId', 'documentNumber');
 
         $data                = $this->getDefaultParameters();
         $data['operation']   = 'request';
         $data['description'] = $this->getDescription();
 
         switch ($this->getPaymentMethod()) {
-            case 'creditcard':
-                $paymentData = $this->getPaymentData($this->getCardData());
-                // As this is only the Autorize Request, we overwrite the auto capture to false
-                $paymentData['payment']['creditcard']['auto_capture'] = false;
-                break;
-            case 'boleto':
-                $paymentData = $this->getPaymentData($this->getBoletoData());
-                break;
-            default:
-                break;
+        case 'creditcard':
+            $paymentData = $this->getPaymentData($this->getCardData());
+            // As this is only the Autorize Request, we overwrite the auto capture to false
+            $paymentData['payment']['creditcard']['auto_capture'] = false;
+            break;
+        case 'boleto':
+            $paymentData = $this->getPaymentData($this->getBoletoData());
+            break;
+        default:
+            break;
         }
 
         $data = array_merge($data, $paymentData);

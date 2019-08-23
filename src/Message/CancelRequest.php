@@ -1,11 +1,8 @@
 <?php
-
 /**
  * Ebanx Cancel Request.
  */
-
 namespace Omnipay\Ebanx\Message;
-
 /**
  * Ebanx Cancel Request.
  *
@@ -33,7 +30,7 @@ namespace Omnipay\Ebanx\Message;
  *   $response = $transaction->send();
  * </code>
  *
- * @see \Omnipay\Ebanx\Gateway
+ * @see  \Omnipay\Ebanx\Gateway
  * @link https://developers.ebanxpagamentos.com/api-reference/ebanx-payment-api/ebanx-payment-guide/guide-cancel-a-refund/
  */
 class CancelRequest extends AbstractRequest

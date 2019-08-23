@@ -1,11 +1,8 @@
 <?php
-
 /**
  * Ebanx Refund Request.
  */
-
 namespace Omnipay\Ebanx\Message;
-
 /**
  * Ebanx Refund Request.
  *
@@ -64,7 +61,7 @@ namespace Omnipay\Ebanx\Message;
  *   }
  * </code>
  *
- * @see \Omnipay\Ebanx\Gateway
+ * @see  \Omnipay\Ebanx\Gateway
  * @link https://developers.ebanxpagamentos.com/api-reference/ebanx-payment-api/ebanx-payment-guide/guide-refund-a-payment/
  */
 class RefundRequest extends AbstractRequest
@@ -81,7 +78,7 @@ class RefundRequest extends AbstractRequest
 
     protected function getEndpoint()
     {
-        $this->validate('amount','transactionReference','transactionId','description');
+        $this->validate('amount', 'transactionReference', 'transactionId', 'description');
         $data                          = array_merge($this->getDefaultParameters(), $this->getSplitData());
         $data['operation']             = 'request';
         $data['hash']                  = $this->getTransactionReference();

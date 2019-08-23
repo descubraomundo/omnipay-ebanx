@@ -7,7 +7,6 @@ use Omnipay\Common\Exception\InvalidRequestException;
 
 /**
  * Abstract Request
- *
  */
 abstract class AbstractRequest extends BaseAbstractRequest
 {
@@ -30,7 +29,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
     /**
      * Set Integration key
      *
-     * @param string $value
+     * @param  string $value
      * @return AbstractRequest provides a fluent interface.
      */
     public function setIntegrationKey($value)
@@ -53,7 +52,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
     /**
      * Set the boleto due date
      *
-     * @param string $value defaults to atual date + 30 days
+     * @param  string $value defaults to atual date + 30 days
      * @return AbstractRequest
      */
     public function setBoletoDueDate($value)
@@ -84,7 +83,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
      * Non-numeric characters are stripped out of the document number, so
      * it's safe to pass in strings such as "224.158.178-40" etc.
      *
-     * @param string $value Parameter value
+     * @param  string $value Parameter value
      * @return AbstractRequest
      */
     public function setDocumentNumber($value)
@@ -106,7 +105,8 @@ abstract class AbstractRequest extends BaseAbstractRequest
 
     /**
      * Set Person Type
-     * @param string $value Person type value
+     *
+     * @param  string $value Person type value
      * @return AbstractRequest
      */
     public function setPersonType($value)
@@ -126,7 +126,8 @@ abstract class AbstractRequest extends BaseAbstractRequest
 
     /**
      * Set Company Name
-     * @param string $value Company name value
+     *
+     * @param  string $value Company name value
      * @return AbstractRequest
      */
     public function setCompanyName($value)
@@ -146,7 +147,8 @@ abstract class AbstractRequest extends BaseAbstractRequest
 
     /**
      * Set Split
-     * @param array $value Array containing the required fields to split the payment
+     *
+     * @param  array $value Array containing the required fields to split the payment
      * @return AbstractRequest
      */
     public function setSplit($value = [])
@@ -167,7 +169,8 @@ abstract class AbstractRequest extends BaseAbstractRequest
     /**
      * Set a note about the payment. The value of this parameter
      * will be shown along with payment details.
-     * @param string $value Person type value
+     *
+     * @param  string $value Person type value
      * @return AbstractRequest
      */
     public function setNote($value)
@@ -427,7 +430,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
      * The number must be between 1 and 12.
      * If the payment method is boleto defaults to 1.
      *
-     * @param integer $value
+     * @param  integer $value
      * @return AuthorizeRequest provides a fluent interface.
      */
     public function setInstallments($value)

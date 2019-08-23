@@ -43,7 +43,7 @@ class Gateway extends AbstractGateway
     /**
      * Set Integration key
      *
-     * @param string $value
+     * @param  string $value
      * @return Gateway provides a fluent interface.
      */
     public function setIntegrationKey($value)

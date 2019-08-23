@@ -1,13 +1,10 @@
 <?php
-
 /**
- * Ebanx Create Card Request.
+ * Ebanx createCard Request.
  */
-
 namespace Omnipay\Ebanx\Message;
-
 /**
- * Ebanx Create Card Request.
+ * Ebanx createCard Request.
  *
  * The create card request is used to create a token
  * for a given credit card to be used for recurrent payments.
@@ -50,7 +47,7 @@ namespace Omnipay\Ebanx\Message;
  *   }
  * </code>
  *
- * @see \Omnipay\Ebanx\Gateway
+ * @see  \Omnipay\Ebanx\Gateway
  * @link https://developers.ebanxpagamentos.com/api-reference/ebanx-payment-api/payment-reference/reference-token-operation/
  */
 class CreateCardRequest extends AbstractRequest
