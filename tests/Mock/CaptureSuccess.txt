@@ -1,0 +1,35 @@
+HTTP/1.1 200 OK
+Server: Apache
+Date: Sun, 11 May 2014 21:17:31 GMT
+Content-Type: application/json; charset=utf-8
+Status: 200 OK
+
+{
+    "payment": {
+        "hash": "5478ba283ef8674415082844ee14817376e49bb76aa9d4c7",
+        "merchant_payment_code": "126378126",
+        "order_number": null,
+        "status": "CO",
+        "status_date": "2014-11-28 16:09:19",
+        "open_date": "2014-11-28 16:08:39",
+        "confirm_date": "2014-11-28 16:09:19",
+        "transfer_date": null,
+        "amount_br": "100.00",
+        "amount_ext": "100.00",
+        "amount_iof": "0.00",
+        "currency_rate": "1.0000",
+        "currency_ext": "BRL",
+        "due_date": "2014-12-05",
+        "instalments": "1",
+        "payment_type_code": "visa",
+        "transaction_status": {
+            "acquirer": "EBANX",
+            "code": "OK",
+            "description": "Cartão de teste autorizado - aguardando captura",
+            "authcode": "12345"
+        },
+        "pre_approved": true,
+        "capture_available": false
+    },
+    "status": "SUCCESS"
+}
