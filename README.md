@@ -2,16 +2,15 @@
 
 **Ebanx gateway for the Omnipay PHP payment processing library**
 
+[![Build Status](https://img.shields.io/travis/descubraomundo/omnipay-ebanx/master.svg?style=flat-square)](https://travis-ci.org/descubraomundo/omnipay-ebanx) [![Code Climate](https://codeclimate.com/github/descubraomundo/omnipay-ebanx/badges/gpa.svg)](https://codeclimate.com/github/descubraomundo/omnipay-ebanx)  [![Test Coverage](https://codeclimate.com/github/descubraomundo/omnipay-ebanx/badges/coverage.svg)](https://codeclimate.com/github/descubraomundo/omnipay-ebanx/coverage)
+
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/descubraomundo/omnipay-ebanx.svg?style=flat-square)](https://packagist.org/packages/descubraomundo/omnipay-ebanx)
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/descubraomundo/omnipay-ebanx/master.svg?style=flat-square)](https://travis-ci.org/descubraomundo/omnipay-ebanx)
-[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/descubraomundo/omnipay-ebanx.svg?style=flat-square)](https://scrutinizer-ci.com/g/descubraomundo/omnipay-ebanx/code-structure)
-[![Quality Score](https://img.shields.io/scrutinizer/g/descubraomundo/omnipay-ebanx.svg?style=flat-square)](https://scrutinizer-ci.com/g/descubraomundo/omnipay-ebanx)
 [![Total Downloads](https://img.shields.io/packagist/dt/descubraomundo/omnipay-ebanx.svg?style=flat-square)](https://packagist.org/packages/descubraomundo/omnipay-ebanx)
 
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 
 [Omnipay](https://github.com/thephpleague/omnipay) is a framework agnostic, multi-gateway payment
-processing library for PHP 5.3+. This package implements Ebanx support for Omnipay.
+processing library for PHP 5.3+. This package implements Pagar.Me support for Omnipay.
 
 This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what
 PSRs you support to avoid any confusion with users and contributors.
