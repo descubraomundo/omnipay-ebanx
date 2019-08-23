@@ -50,7 +50,7 @@ namespace Omnipay\Ebanx\Message;
  *   }
  * </code>
  *
- * @see \Omnipay\Ebanx\Gateway
+ * @see  \Omnipay\Ebanx\Gateway
  * @link https://developers.ebanxpagamentos.com/api-reference/ebanx-payment-api/payment-reference/reference-token-operation/
  */
 class CreateCardRequest extends AbstractRequest

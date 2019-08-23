@@ -39,7 +39,7 @@ namespace Omnipay\Ebanx\Message;
  *   }
  * </code>
  *
- * @see \Omnipay\Ebanx\Gateway
+ * @see  \Omnipay\Ebanx\Gateway
  * @link https://developers.ebanxpagamentos.com/api-reference/ebanx-payment-api/ebanx-payment-guide/guide-capture-a-payment/
  */
 class FetchTransactionRequest extends AbstractRequest

@@ -89,7 +89,7 @@ namespace Omnipay\Ebanx\Message;
  * Authorize request, this class simply extends the AuthorizeRequest
  * class and over-rides the getData method setting auto_capture = true.
  *
- * @see \Omnipay\Ebanx\Gateway
+ * @see  \Omnipay\Ebanx\Gateway
  * @link https://developers.ebanxpagamentos.com/api-reference/ebanx-payment-api/ebanx-payment-guide/guide-capture-a-payment/
  */
 class PurchaseRequest extends AuthorizeRequest

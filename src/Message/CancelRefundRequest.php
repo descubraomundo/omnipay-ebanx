@@ -41,7 +41,7 @@ namespace Omnipay\Ebanx\Message;
  *   $response = $transaction->send();
  * </code>
  *
- * @see \Omnipay\Ebanx\Gateway
+ * @see  \Omnipay\Ebanx\Gateway
  * @link https://developers.ebanxpagamentos.com/api-reference/ebanx-payment-api/ebanx-payment-guide/guide-cancel-a-refund/
  */
 class CancelRefundRequest extends AbstractRequest
@@ -58,7 +58,7 @@ class CancelRefundRequest extends AbstractRequest
 
     protected function getEndpoint()
     {
-        $this->validate('amount','transactionReference','transactionId','description');
+        $this->validate('amount', 'transactionReference', 'transactionId', 'description');
         $data                          = array_merge($this->getDefaultParameters(), $this->getSplitData());
         $data['operation']             = 'cancel';
         $data['hash']                  = $this->getTransactionReference();

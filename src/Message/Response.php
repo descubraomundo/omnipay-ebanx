@@ -151,9 +151,11 @@ class Response extends AbstractResponse
 
     /**
      * Get the payment status out of the response array
+     *
      * @return string
      */
-    public function getPaymentStatus() {
+    public function getPaymentStatus()
+    {
 
         return $this->getPaymentData('status');
     }
@@ -163,7 +165,8 @@ class Response extends AbstractResponse
      *
      * @return array|null
      */
-    public function getTransactionStatus() {
+    public function getTransactionStatus()
+    {
 
         return $this->getPaymentData('transaction_status');
     }
@@ -173,7 +176,8 @@ class Response extends AbstractResponse
      *
      * @return array|null
      */
-    public function getRefunds() {
+    public function getRefunds()
+    {
 
         return $this->getPaymentData('refunds');
     }

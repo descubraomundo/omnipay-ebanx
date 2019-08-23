@@ -72,15 +72,15 @@ namespace Omnipay\Ebanx\Message;
  *   }
  * </code>
  *
- * @see \Omnipay\Ebanx\Gateway
- * @see \Omnipay\Ebanx\Message\CaptureRequest
+ * @see  \Omnipay\Ebanx\Gateway
+ * @see  \Omnipay\Ebanx\Message\CaptureRequest
  * @link https://developers.ebanxpagamentos.com/api-reference/ebanx-payment-api/ebanx-payment-guide/guide-create-a-payment/brazil/#payment-page-API
  */
 class PaymentPageRequest extends AbstractRequest
 {
     public function getData()
     {
-        $this->validate('card','amount','currency','transactionId');
+        $this->validate('card', 'amount', 'currency', 'transactionId');
 
         $data                          = $this->getDefaultParameters();
         $data['name']                  = $this->getCard()->getName();
