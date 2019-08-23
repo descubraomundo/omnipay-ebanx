@@ -1,13 +1,10 @@
 <?php
-
 /**
- * Ebanx Payment Page Request.
+ * Ebanx paymentPage Request.
  */
-
 namespace Omnipay\Ebanx\Message;
-
 /**
- * Ebanx Payment Page Request
+ * Ebanx paymentPage Request
  *
  * A payment page is a page inside Ebanx domain where the user will be able to
  * provide the payment off-site

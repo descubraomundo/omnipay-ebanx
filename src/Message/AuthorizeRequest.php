@@ -2,9 +2,7 @@
 /**
  * Ebanx Authorize Request
  */
-
 namespace Omnipay\Ebanx\Message;
-
 /**
  * Ebanx Authorize Request
  *

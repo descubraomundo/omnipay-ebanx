@@ -1,13 +1,10 @@
 <?php
-
 /**
- * Ebanx Fetch Transaction Request.
+ * Ebanx fetchTransaction Request.
  */
-
 namespace Omnipay\Ebanx\Message;
-
 /**
- * Ebanx Fetch Transaction Request.
+ * Ebanx fetchTransaction Request.
  *
  * To query a payment and fetch its details, you must call the API method query.
  * You can either use the 'transactionReference' or the 'transactionId' to fetch the transaction:

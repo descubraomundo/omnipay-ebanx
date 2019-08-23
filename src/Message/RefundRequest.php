@@ -1,11 +1,8 @@
 <?php
-
 /**
  * Ebanx Refund Request.
  */
-
 namespace Omnipay\Ebanx\Message;
-
 /**
  * Ebanx Refund Request.
  *

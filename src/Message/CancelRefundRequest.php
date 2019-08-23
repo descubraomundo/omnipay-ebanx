@@ -1,13 +1,10 @@
 <?php
-
 /**
- * Ebanx Cancel Refund Request.
+ * Ebanx cancelRefund Request.
  */
-
 namespace Omnipay\Ebanx\Message;
-
 /**
- * Ebanx Cancel Refund Request.
+ * Ebanx cancelRefund Request.
  *
  * To cancel a refund, you must call the API method refund.
  * A refund can be cancelled if, and only if, its status is requested (RE) or pending (PE).
