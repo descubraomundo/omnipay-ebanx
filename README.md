@@ -1,4 +1,4 @@
-# Omnipay: ebanx
+# Omnipay: Ebanx
 
 **Ebanx gateway for the Omnipay PHP payment processing library**
 
@@ -11,7 +11,7 @@
 
 
 [Omnipay](https://github.com/thephpleague/omnipay) is a framework agnostic, multi-gateway payment
-processing library for PHP 5.3+. This package implements ebanx support for Omnipay.
+processing library for PHP 5.3+. This package implements Ebanx support for Omnipay.
 
 This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what
 PSRs you support to avoid any confusion with users and contributors.
@@ -28,7 +28,7 @@ $ composer require league/omnipay descubraomundo/omnipay-ebanx
 
 The following gateways are provided by this package:
 
- * ebanx
+ * Ebanx
 
 For general usage instructions, please see the main [Omnipay](https://github.com/thephpleague/omnipay) repository.
 
