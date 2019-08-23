@@ -71,6 +71,19 @@ class Response extends AbstractResponse
 
         return null;
     }
+    /**
+     * Get the transaction id.
+     *
+     * @return string|null
+     */
+    public function getTransactionId()
+    {
+        if (isset($this->data['payment']['merchant_payment_code'])) {
+            return $this->data['payment']['merchant_payment_code'];
+        }
+
+        return null;
+    }
 
     /**
      * Get the error message from the response.
