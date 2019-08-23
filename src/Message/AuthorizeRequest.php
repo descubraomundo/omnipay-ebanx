@@ -105,6 +105,7 @@ class AuthorizeRequest extends AbstractRequest
             $paymentData = $this->getPaymentData($this->getBoletoData());
             break;
         default:
+            $paymentData = $this->getPaymentData();
             break;
         }
 

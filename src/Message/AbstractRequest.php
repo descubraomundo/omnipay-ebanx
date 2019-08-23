@@ -10,8 +10,18 @@ use Omnipay\Common\Exception\InvalidRequestException;
  */
 abstract class AbstractRequest extends BaseAbstractRequest
 {
-    protected $liveEndpoint = 'https://api.example.com';
+    protected $liveEndpoint = 'https://api.ebanx.com.br/ws';
     protected $testEndpoint = 'https://staging.ebanx.com.br/ws';
+
+    /**
+     * Get the endpoint where the request should be made.
+     *
+     * @return string the URL of the endpoint
+     */
+    protected function getEndpoint()
+    {
+        return $this->getTestMode() ? $this->testEndpoint : $this->liveEndpoint;
+    }
 
     /**
      * Get the gateway Integration Key.
@@ -207,16 +217,6 @@ abstract class AbstractRequest extends BaseAbstractRequest
         return $this->createResponse($payload);
     }
 
-    /**
-     * Get the endpoint where the request should be made.
-     *
-     * @return string the URL of the endpoint
-     */
-    protected function getEndpoint()
-    {
-        return $this->getTestMode() ? $this->testEndpoint : $this->liveEndpoint;
-    }
-
     protected function createResponse($data)
     {
         return $this->response = new Response($this, $data);
@@ -245,50 +245,6 @@ abstract class AbstractRequest extends BaseAbstractRequest
     }
 
     /**
-     * Get the payment data.
-     *
-     * Because the Ebanx gateway uses a common format for passing
-     * payment data to the API, this function can be called to get the
-     * data from the associated card object in the format that the
-     * API requires.
-     *
-     * @return array
-     */
-    protected function getPaymentData($aditionalPaymentData = [])
-    {
-        $customerData = $this->getCustomerData();
-        $addressData  = $this->getAddressData();
-        $splitData    = $this->getSplitData();
-
-        $paymentData                          = array();
-        $paymentData['merchant_payment_code'] = $this->getTransactionId();
-        $paymentData['currency_code']         = $this->getCurrency();
-        $paymentData['amount_total']          = $this->getAmount();
-        $paymentData['payment_type_code']     = $this->getPaymentMethod();
-
-        if($notifyUrl = $this->getNotifyUrl()) {
-            $paymentData['notification_url']      = $notifyUrl;
-        }
-        if($returnUrl = $this->getReturnUrl()) {
-            $paymentData['redirect_url']      = $returnUrl;
-        }
-
-        if($paymentNote = $this->getNote()) {
-            $paymentData['note']      = $paymentNote;
-        }
-
-        $paymentData = array_merge(
-            $customerData,
-            $addressData,
-            $paymentData,
-            $splitData,
-            $aditionalPaymentData
-        );
-
-        return ['payment' => $paymentData];
-    }
-
-    /**
      * Get the customer data.
      *
      * Because the Ebanx gateway uses a common format for passing
@@ -300,7 +256,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
      */
     protected function getCustomerData()
     {
-        $this->validate('documentNumber');
+        $this->validate('card', 'documentNumber');
         $card    = $this->getCard();
 
         $data                 = array();
@@ -412,6 +368,52 @@ abstract class AbstractRequest extends BaseAbstractRequest
     {
         $split = $this->getSplit();
         return !empty($split) ? ['split' => $split] : [];
+    }
+
+    /**
+     * Get the payment data.
+     *
+     * Because the Ebanx gateway uses a common format for passing
+     * payment data to the API, this function can be called to get the
+     * data from the associated card object in the format that the
+     * API requires.
+     *
+     * @return array
+     */
+    protected function getPaymentData($aditionalPaymentData = [])
+    {
+        $this->validate('transactionId','currency','amount','paymentMethod');
+
+        $customerData = $this->getCustomerData();
+        $addressData  = $this->getAddressData();
+        $splitData    = $this->getSplitData();
+
+        $paymentData                          = array();
+        $paymentData['merchant_payment_code'] = $this->getTransactionId();
+        $paymentData['currency_code']         = $this->getCurrency();
+        $paymentData['amount_total']          = $this->getAmount();
+        $paymentData['payment_type_code']     = $this->getPaymentMethod();
+
+        if($notifyUrl = $this->getNotifyUrl()) {
+            $paymentData['notification_url']      = $notifyUrl;
+        }
+        if($returnUrl = $this->getReturnUrl()) {
+            $paymentData['redirect_url']      = $returnUrl;
+        }
+
+        if($paymentNote = $this->getNote()) {
+            $paymentData['note']      = $paymentNote;
+        }
+
+        $paymentData = array_merge(
+            $customerData,
+            $addressData,
+            $paymentData,
+            $splitData,
+            $aditionalPaymentData
+        );
+
+        return ['payment' => $paymentData];
     }
 
     /**
