@@ -39,6 +39,13 @@ class ResponseTest extends TestCase
         $this->assertEquals('https://staging.ebanx.com.br/checkout/?hash=5ae0b5d4f1883ed4b214c0277af29f1981443f59a26eef87', $response->getRedirectUrl());
     }
 
+    public function testGetRedirectURLAsNull() {
+        $httpResponse = $this->getMockHttpResponse('AuthorizeBoletoSuccess.txt');
+        $response = $this->createResponse($httpResponse);
+
+        $this->assertNull($response->getRedirectUrl());
+    }
+
     public function testGetTransactionReference() {
         $httpResponse = $this->getMockHttpResponse('AuthorizeBoletoSuccess.txt');
         $response = $this->createResponse($httpResponse);
@@ -51,6 +58,13 @@ class ResponseTest extends TestCase
         $response = $this->createResponse($httpResponse);
 
         $this->assertEquals('af461f512c1', $response->getTransactionId());
+    }
+
+    public function testGetTransactionIdAsNull() {
+        $httpResponse = $this->getMockHttpResponse('FailureRequest.txt');
+        $response = $this->createResponse($httpResponse);
+
+        $this->assertNull($response->getTransactionId());
     }
 
     public function testGetMessageOnError() {
@@ -72,6 +86,13 @@ class ResponseTest extends TestCase
         $response = $this->createResponse($httpResponse);
 
         $this->assertEquals('[OK] Sandbox - Test credit card, transaction captured', $response->getMessage());
+    }
+
+    public function testGetMessageOnRedirectAsNull() {
+        $httpResponse = $this->getMockHttpResponse('AuthorizePaymentPageRequest.txt');
+        $response = $this->createResponse($httpResponse);
+
+        $this->assertNull($response->getMessage());
     }
 
     public function testGetCardRerefence() {
@@ -128,8 +149,14 @@ class ResponseTest extends TestCase
 
         $this->assertEquals($paymentData, $response->getPaymentData());
         $this->assertEquals($transactionStatus, $response->getPaymentData('transaction_status'));
+        $this->assertNull($response->getPaymentData('undefined_index'));
     }
 
+    public function testGetPaymentDataOnError() {
+        $httpResponse = $this->getMockHttpResponse('FailureRequest.txt');
+        $response = $this->createResponse($httpResponse);
+        $this->assertNull($response->getPaymentData());
+    }
 
     public function testGetPaymentStatus() {
         $httpResponse = $this->getMockHttpResponse('CaptureSuccess.txt');
