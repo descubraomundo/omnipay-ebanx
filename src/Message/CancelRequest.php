@@ -3,6 +3,7 @@
  * Ebanx Cancel Request.
  */
 namespace Omnipay\Ebanx\Message;
+
 /**
  * Ebanx Cancel Request.
  *

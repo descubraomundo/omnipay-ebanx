@@ -3,6 +3,7 @@
  * Ebanx Capture Request.
  */
 namespace Omnipay\Ebanx\Message;
+
 /**
  * Ebanx Capture Request.
  *

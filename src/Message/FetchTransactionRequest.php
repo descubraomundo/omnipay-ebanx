@@ -3,6 +3,7 @@
  * Ebanx fetchTransaction Request.
  */
 namespace Omnipay\Ebanx\Message;
+
 /**
  * Ebanx fetchTransaction Request.
  *

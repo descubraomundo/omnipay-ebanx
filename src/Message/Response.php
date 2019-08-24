@@ -5,7 +5,6 @@ namespace Omnipay\Ebanx\Message;
 use Omnipay\Common\Message\AbstractResponse;
 use Omnipay\Common\Message\RequestInterface;
 
-
 /**
  * Ebanx Response
  *
@@ -96,14 +95,13 @@ class Response extends AbstractResponse
     {
         if (!$this->isSuccessful()) {
             return '[' . $this->data['status_code'] . '] ' . $this->data['status_message'];
-        } elseif($boletoData = $this->getBoleto()) {
+        } elseif ($boletoData = $this->getBoleto()) {
             return $boletoData['boleto_barcode'];
-        } elseif($transactionStatus = $this->getTransactionStatus()) {
+        } elseif ($transactionStatus = $this->getTransactionStatus()) {
             return '[' . $transactionStatus['code'] . '] ' .$transactionStatus['description'];
         }
 
         return null;
-
     }
 
     /**
@@ -128,9 +126,8 @@ class Response extends AbstractResponse
     public function getPaymentData($key = null)
     {
         if (isset($this->data['payment'])) {
-
-            if($key) {
-                if(isset($this->data['payment'][$key])) {
+            if ($key) {
+                if (isset($this->data['payment'][$key])) {
                     return $this->data['payment'][$key];
                 } else {
                     return null;

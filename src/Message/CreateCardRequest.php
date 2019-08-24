@@ -3,6 +3,7 @@
  * Ebanx createCard Request.
  */
 namespace Omnipay\Ebanx\Message;
+
 /**
  * Ebanx createCard Request.
  *

@@ -3,6 +3,7 @@
  * Ebanx paymentPage Request.
  */
 namespace Omnipay\Ebanx\Message;
+
 /**
  * Ebanx paymentPage Request
  *
