@@ -129,10 +129,12 @@ class Response extends AbstractResponse
     {
         if (isset($this->data['payment'])) {
 
-            if($key && isset($this->data['payment'][$key])) {
-                return $this->data['payment'][$key];
-            } else {
-                return null;
+            if($key) {
+                if(isset($this->data['payment'][$key])) {
+                    return $this->data['payment'][$key];
+                } else {
+                    return null;
+                }
             }
 
             return $this->data['payment'];
@@ -194,20 +196,4 @@ class Response extends AbstractResponse
 
         return $this->getPaymentData('refunds');
     }
-
-    /**
-     * Get the Calculted Installments provided by Ebanx API.
-     *
-     * @return array|null the calculated installments
-     */
-    public function getCalculatedInstallments()
-    {
-        if (isset($this->data['installments'])) {
-            $data = $this->data['installments'];
-            return $data;
-        } else {
-            return null;
-        }
-    }
-
 }
