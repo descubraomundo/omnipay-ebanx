@@ -47,7 +47,7 @@ class CancelRefundRequest extends AbstractRequest
     public function getData()
     {
         /*
-         * As the refund request the params should be passed in the query
+         * As the cancel refund request the params should be passed in the query
          * not in the body, we return an empty array for the body, and
          * change the params at the getEndpoint method.
          */

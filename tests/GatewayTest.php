@@ -8,9 +8,9 @@ use Omnipay\Common\CreditCard;
 class GatewayTest extends GatewayTestCase
 {
     /**
-     * 
      *
-     * @var EbanxGateway 
+     *
+     * @var EbanxGateway
      */
     protected $gateway;
 
@@ -41,12 +41,11 @@ class GatewayTest extends GatewayTestCase
         $this->assertInstanceOf('Omnipay\Ebanx\Message\CaptureRequest', $request);
     }
 
-    public function testPurchase()
+    public function testCancel()
     {
-        $request = $this->gateway->purchase(array('amount' => '10.00'));
+        $request = $this->gateway->cancel();
 
-        $this->assertInstanceOf('Omnipay\Ebanx\Message\PurchaseRequest', $request);
-        $this->assertSame('10.00', $request->getAmount());
+        $this->assertInstanceOf('Omnipay\Ebanx\Message\CancelRequest', $request);
     }
 
     public function testRefund()
@@ -57,10 +56,42 @@ class GatewayTest extends GatewayTestCase
         $this->assertSame('10.00', $request->getAmount());
     }
 
+    public function testCancelRefund()
+    {
+        $request = $this->gateway->cancelRefund(array('amount' => '10.00'));
+
+        $this->assertInstanceOf('Omnipay\Ebanx\Message\CancelRefundRequest', $request);
+        $this->assertSame('10.00', $request->getAmount());
+    }
+
     public function testFetchTransaction()
     {
         $request = $this->gateway->fetchTransaction();
 
         $this->assertInstanceOf('Omnipay\Ebanx\Message\FetchTransactionRequest', $request);
+    }
+
+    public function testPurchase()
+    {
+        $request = $this->gateway->purchase(array('amount' => '10.00'));
+
+        $this->assertInstanceOf('Omnipay\Ebanx\Message\PurchaseRequest', $request);
+        $this->assertSame('10.00', $request->getAmount());
+    }
+
+    public function testPaymentPage()
+    {
+        $request = $this->gateway->paymentPage(array('amount' => '10.00'));
+
+        $this->assertInstanceOf('Omnipay\Ebanx\Message\PaymentPageRequest', $request);
+        $this->assertSame('10.00', $request->getAmount());
+    }
+
+    public function testCreateCard()
+    {
+        $request = $this->gateway->createCard(array('amount' => '10.00'));
+
+        $this->assertInstanceOf('Omnipay\Ebanx\Message\CreateCardRequest', $request);
+        $this->assertSame('10.00', $request->getAmount());
     }
 }
