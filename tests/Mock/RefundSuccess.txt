@@ -1,0 +1,44 @@
+HTTP/1.1 200 OK
+Server: Apache
+Date: Sun, 11 May 2014 21:17:31 GMT
+Content-Type: application/json; charset=utf-8
+Status: 200 OK
+
+{
+    "payment": {
+        "hash": "5ad9028b30eb8de099f9fe72b9763283c7cf4d35b6430221",
+        "pin": "253639240",
+        "country": "br",
+        "merchant_payment_code": "9dwdwdw1e31c4c234",
+        "order_number": null,
+        "status": "CO",
+        "status_date": "2018-04-19 20:57:07",
+        "open_date": "2018-04-19 20:56:42",
+        "confirm_date": "2018-04-19 20:57:07",
+        "transfer_date": null,
+        "amount_br": "100.00",
+        "amount_ext": "100.00",
+        "amount_iof": "0.00",
+        "currency_rate": "1.0000",
+        "currency_ext": "BRL",
+        "due_date": "2018-04-22",
+        "instalments": "1",
+        "payment_type_code": "visa",
+        "pre_approved": false,
+        "capture_available": null,
+        "refunds": [
+            {
+                "id": "68682",
+                "merchant_refund_code": null,
+                "status": "RE",
+                "request_date": "2018-04-19 21:00:06",
+                "pending_date": null,
+                "confirm_date": null,
+                "cancel_date": null,
+                "amount_ext": "100.00",
+                "description": "Testing notifications"
+            }
+        ]
+    },
+    "status": "SUCCESS"
+}

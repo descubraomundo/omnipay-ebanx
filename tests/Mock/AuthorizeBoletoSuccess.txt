@@ -1,0 +1,33 @@
+HTTP/1.1 200 OK
+Server: Apache
+Date: Sun, 11 May 2014 21:17:31 GMT
+Content-Type: application/json; charset=utf-8
+Status: 200 OK
+
+{
+    "payment": {
+        "hash": "59ad5dd18a6d5ba0e24327c2ba92a730115a80bd58b3baa5",
+        "pin": "655158605",
+        "merchant_payment_code": "af461f512c1",
+        "order_number": null,
+        "status": "PE",
+        "status_date": null,
+        "open_date": "2017-09-04 14:06:09",
+        "confirm_date": null,
+        "transfer_date": null,
+        "amount_br": "100.00",
+        "amount_ext": "100.00",
+        "amount_iof": "0.00",
+        "currency_rate": "1.0000",
+        "currency_ext": "BRL",
+        "due_date": "2017-09-08",
+        "instalments": "1",
+        "payment_type_code": "boleto",
+        "boleto_url": "https://staging.ebanx.com.br/print/?hash=59ad5dd18a6d5ba0e24327c2ba92a730115a80bd58b3baa5",
+        "boleto_barcode": "34191760071302120372714245740007572710000010038",
+        "boleto_barcode_raw": "34195727100000100381760013021203721424574000",
+        "pre_approved": false,
+        "capture_available": null
+    },
+    "status": "SUCCESS"
+}
