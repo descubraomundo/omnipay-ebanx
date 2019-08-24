@@ -1,20 +1,6 @@
 # Changelog
 
-All Notable changes to `:package_name` will be documented in this file
+All Notable changes to `:descubraomundo/omnipay-ebanx` will be documented in this file
 
-## NEXT - YYYY-MM-DD
-
-### Added
-- Nothing
-
-### Deprecated
-- Nothing
-
-### Fixed
-- Nothing
-
-### Removed
-- Nothing
-
-### Security
-- Nothing
+## [1.0](https://github.com/descubraomundo/omnipay-ebanx/releases/tag/v1.0) (2019-08-24)
+- Add tag release
