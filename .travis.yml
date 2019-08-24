@@ -11,10 +11,6 @@ matrix:
     - php: 5.6
       env: setup=lowest
 
-env:
-  global:
-    CC_TEST_REPORTER_ID=a3242d89f6f5f6241416b7a6b7973bb0234219e7bccf1997a72daad841990ae6
-
 before_script:
   - travis_retry composer self-update
   - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-source
