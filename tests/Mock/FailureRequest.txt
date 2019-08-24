@@ -1,0 +1,11 @@
+HTTP/1.1 200 OK
+Server: Apache
+Date: Sun, 11 May 2014 21:17:31 GMT
+Content-Type: application/json; charset=utf-8
+Status: 200 OK
+
+{
+    "status": "ERROR",
+    "status_code": "BP-SA-1",
+    "status_message": "Parameter integration_key not informed"
+}

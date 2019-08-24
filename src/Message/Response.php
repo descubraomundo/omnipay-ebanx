@@ -5,7 +5,6 @@ namespace Omnipay\Ebanx\Message;
 use Omnipay\Common\Message\AbstractResponse;
 use Omnipay\Common\Message\RequestInterface;
 
-
 /**
  * Ebanx Response
  *
@@ -71,6 +70,19 @@ class Response extends AbstractResponse
 
         return null;
     }
+    /**
+     * Get the transaction id.
+     *
+     * @return string|null
+     */
+    public function getTransactionId()
+    {
+        if (isset($this->data['payment']['merchant_payment_code'])) {
+            return $this->data['payment']['merchant_payment_code'];
+        }
+
+        return null;
+    }
 
     /**
      * Get the error message from the response.
@@ -83,14 +95,13 @@ class Response extends AbstractResponse
     {
         if (!$this->isSuccessful()) {
             return '[' . $this->data['status_code'] . '] ' . $this->data['status_message'];
-        } elseif($boletoData = $this->getBoleto()) {
+        } elseif ($boletoData = $this->getBoleto()) {
             return $boletoData['boleto_barcode'];
-        } elseif($transactionStatus = $this->getTransactionStatus()) {
+        } elseif ($transactionStatus = $this->getTransactionStatus()) {
             return '[' . $transactionStatus['code'] . '] ' .$transactionStatus['description'];
         }
 
         return null;
-
     }
 
     /**
@@ -115,11 +126,12 @@ class Response extends AbstractResponse
     public function getPaymentData($key = null)
     {
         if (isset($this->data['payment'])) {
-
-            if($key && isset($this->data['payment'][$key])) {
-                return $this->data['payment'][$key];
-            } else {
-                return null;
+            if ($key) {
+                if (isset($this->data['payment'][$key])) {
+                    return $this->data['payment'][$key];
+                } else {
+                    return null;
+                }
             }
 
             return $this->data['payment'];
@@ -181,20 +193,4 @@ class Response extends AbstractResponse
 
         return $this->getPaymentData('refunds');
     }
-
-    /**
-     * Get the Calculted Installments provided by Ebanx API.
-     *
-     * @return array|null the calculated installments
-     */
-    public function getCalculatedInstallments()
-    {
-        if (isset($this->data['installments'])) {
-            $data = $this->data['installments'];
-            return $data;
-        } else {
-            return null;
-        }
-    }
-
 }

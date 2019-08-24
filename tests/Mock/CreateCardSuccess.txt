@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Server: Apache
+Date: Sun, 11 May 2014 21:17:31 GMT
+Content-Type: application/json; charset=utf-8
+Status: 200 OK
+
+{
+    "status": "SUCCESS",
+    "payment_type_code": "visa",
+    "token": "805c49a8c606b4f2d53fad5aa688ec6c3aa247b83ac2146ee148e328244670b16f5cb719766b3a82e902387670958e71c323413c62df5ce975c1abf99d2049c6",
+    "masked_card_number": "411111xxxxxx1111"
+}

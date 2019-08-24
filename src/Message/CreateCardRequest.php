@@ -3,6 +3,7 @@
  * Ebanx createCard Request.
  */
 namespace Omnipay\Ebanx\Message;
+
 /**
  * Ebanx createCard Request.
  *
@@ -63,7 +64,7 @@ class CreateCardRequest extends AbstractRequest
         return $data;
     }
 
-    protected function getEndpoint()
+    public function getEndpoint()
     {
         return parent::getEndpoint() . '/token';
     }

@@ -3,6 +3,7 @@
  * Ebanx paymentPage Request.
  */
 namespace Omnipay\Ebanx\Message;
+
 /**
  * Ebanx paymentPage Request
  *
@@ -92,7 +93,7 @@ class PaymentPageRequest extends AbstractRequest
     }
 
 
-    protected function getEndpoint()
+    public function getEndpoint()
     {
         return parent::getEndpoint() . '/request';
     }

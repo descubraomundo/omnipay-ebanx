@@ -18,7 +18,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
      *
      * @return string the URL of the endpoint
      */
-    protected function getEndpoint()
+    public function getEndpoint()
     {
         return $this->getTestMode() ? $this->testEndpoint : $this->liveEndpoint;
     }
@@ -267,7 +267,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
 
         $personType = $this->getPersonType();
         //If you need to create a payment for a company a couple of extra parameters are need.
-        if($personType == 'business') {
+        if ($personType == 'business') {
             $this->validate('companyName');
             $data['name']                = $this->getCompanyName();
             $data['person_type']         = $personType;
@@ -294,9 +294,9 @@ abstract class AbstractRequest extends BaseAbstractRequest
         $data['instalments'] = $this->getInstallments();
 
         // We try first for the card reference
-        if($cardReference) {
+        if ($cardReference) {
             $data['creditcard']['token']  = $cardReference;
-        } elseif($card) {
+        } elseif ($card) {
             $card->validate();
             $data['creditcard']['card_name']     = $card->getName();
             $data['creditcard']['card_number']   = $card->getNumber();
@@ -382,7 +382,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
      */
     protected function getPaymentData($aditionalPaymentData = [])
     {
-        $this->validate('transactionId','currency','amount','paymentMethod');
+        $this->validate('transactionId', 'currency', 'amount', 'paymentMethod');
 
         $customerData = $this->getCustomerData();
         $addressData  = $this->getAddressData();
@@ -394,14 +394,14 @@ abstract class AbstractRequest extends BaseAbstractRequest
         $paymentData['amount_total']          = $this->getAmount();
         $paymentData['payment_type_code']     = $this->getPaymentMethod();
 
-        if($notifyUrl = $this->getNotifyUrl()) {
+        if ($notifyUrl = $this->getNotifyUrl()) {
             $paymentData['notification_url']      = $notifyUrl;
         }
-        if($returnUrl = $this->getReturnUrl()) {
+        if ($returnUrl = $this->getReturnUrl()) {
             $paymentData['redirect_url']      = $returnUrl;
         }
 
-        if($paymentNote = $this->getNote()) {
+        if ($paymentNote = $this->getNote()) {
             $paymentData['note']      = $paymentNote;
         }
 

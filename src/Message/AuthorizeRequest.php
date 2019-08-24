@@ -3,6 +3,7 @@
  * Ebanx Authorize Request
  */
 namespace Omnipay\Ebanx\Message;
+
 /**
  * Ebanx Authorize Request
  *
@@ -96,17 +97,17 @@ class AuthorizeRequest extends AbstractRequest
         $data['description'] = $this->getDescription();
 
         switch ($this->getPaymentMethod()) {
-        case 'creditcard':
-            $paymentData = $this->getPaymentData($this->getCardData());
-            // As this is only the Autorize Request, we overwrite the auto capture to false
-            $paymentData['payment']['creditcard']['auto_capture'] = false;
-            break;
-        case 'boleto':
-            $paymentData = $this->getPaymentData($this->getBoletoData());
-            break;
-        default:
-            $paymentData = $this->getPaymentData();
-            break;
+            case 'creditcard':
+                $paymentData = $this->getPaymentData($this->getCardData());
+                // As this is only the Autorize Request, we overwrite the auto capture to false
+                $paymentData['payment']['creditcard']['auto_capture'] = false;
+                break;
+            case 'boleto':
+                $paymentData = $this->getPaymentData($this->getBoletoData());
+                break;
+            default:
+                $paymentData = $this->getPaymentData();
+                break;
         }
 
         $data = array_merge($data, $paymentData);
@@ -114,7 +115,7 @@ class AuthorizeRequest extends AbstractRequest
         return $data;
     }
 
-    protected function getEndpoint()
+    public function getEndpoint()
     {
         return parent::getEndpoint() . '/direct';
     }

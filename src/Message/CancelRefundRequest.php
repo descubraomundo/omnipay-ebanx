@@ -3,6 +3,7 @@
  * Ebanx cancelRefund Request.
  */
 namespace Omnipay\Ebanx\Message;
+
 /**
  * Ebanx cancelRefund Request.
  *
@@ -53,7 +54,7 @@ class CancelRefundRequest extends AbstractRequest
         return [];
     }
 
-    protected function getEndpoint()
+    public function getEndpoint()
     {
         $this->validate('amount', 'transactionReference', 'transactionId', 'description');
         $data                          = array_merge($this->getDefaultParameters(), $this->getSplitData());

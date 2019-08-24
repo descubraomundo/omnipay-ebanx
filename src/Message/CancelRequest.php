@@ -3,6 +3,7 @@
  * Ebanx Cancel Request.
  */
 namespace Omnipay\Ebanx\Message;
+
 /**
  * Ebanx Cancel Request.
  *
@@ -45,7 +46,7 @@ class CancelRequest extends AbstractRequest
         return [];
     }
 
-    protected function getEndpoint()
+    public function getEndpoint()
     {
         $data                          = $this->getDefaultParameters();
         $data['hash']                  = $this->getTransactionReference();

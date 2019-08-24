@@ -3,6 +3,7 @@
  * Ebanx Purchase Request.
  */
 namespace Omnipay\Ebanx\Message;
+
 /**
  * Ebanx Purchase Request.
  *

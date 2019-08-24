@@ -3,6 +3,7 @@
  * Ebanx fetchTransaction Request.
  */
 namespace Omnipay\Ebanx\Message;
+
 /**
  * Ebanx fetchTransaction Request.
  *
@@ -51,7 +52,7 @@ class FetchTransactionRequest extends AbstractRequest
         return [];
     }
 
-    protected function getEndpoint()
+    public function getEndpoint()
     {
         $data                          = $this->getDefaultParameters();
         $data['hash']                  = $this->getTransactionReference();
