@@ -163,6 +163,15 @@ class AbstractRequestTest extends TestCase
         $this->assertArrayNotHasKey('creditcard', $cardData);
     }
 
+    public function testGetBoletoData() {
+        $this->assertSame($this->request, $this->request->setBoletoDueDate('2019-08-23'));
+
+        $boletoData = $this->request->getBoletoData();
+
+        $this->assertArrayHasKey('due_date', $boletoData);
+        $this->assertSame($boletoData['due_date'], $this->request->getBoletoDueDate());
+    }
+
     public function testBoletoDueDate()
     {
         $this->assertSame($this->request, $this->request->setBoletoDueDate('2019-08-23'));
@@ -170,6 +179,11 @@ class AbstractRequestTest extends TestCase
         $this->assertSame('23/08/2019', $this->request->getBoletoDueDate());
         // Custom Format
         $this->assertSame('Aug 23,2019', $this->request->getBoletoDueDate('M d,Y'));
+        // Emtpy String & Null
+        $this->request->setBoletoDueDate('');
+        $this->assertNull($this->request->getBoletoDueDate());
+        $this->request->setBoletoDueDate(null);
+        $this->assertNull($this->request->getBoletoDueDate());
     }
 
     public function testGetAddressValidString()
@@ -238,6 +252,9 @@ class AbstractRequestTest extends TestCase
         $this->request->setCurrency('BRL');
         $this->request->setAmount('100.20');
         $this->request->setPaymentMethod('boleto');
+        $this->request->setNotifyUrl('http://www.example.com');
+        $this->request->setReturnUrl('http://www.example.com/success');
+        $this->request->setNote('Payment Note');
 
         $paymentData = $this->request->getPaymentData();
         $this->assertArrayHasKey('payment', $paymentData);
@@ -255,6 +272,15 @@ class AbstractRequestTest extends TestCase
 
         $this->assertArrayHasKey('payment_type_code', $subArrayPaymentData);
         $this->assertSame($this->request->getPaymentMethod(), $subArrayPaymentData['payment_type_code']);
+
+        $this->assertArrayHasKey('notification_url', $subArrayPaymentData);
+        $this->assertSame($this->request->getNotifyUrl(), $subArrayPaymentData['notification_url']);
+
+        $this->assertArrayHasKey('redirect_url', $subArrayPaymentData);
+        $this->assertSame($this->request->getReturnUrl(), $subArrayPaymentData['redirect_url']);
+
+        $this->assertArrayHasKey('note', $subArrayPaymentData);
+        $this->assertSame($this->request->getNote(), $subArrayPaymentData['note']);
 
     }
 
