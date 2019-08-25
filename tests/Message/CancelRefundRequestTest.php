@@ -25,8 +25,6 @@ class CancelRefundRequestTest extends TestCase
     public function testGetDataIsEmpty()
     {
         $data    = $this->request->getData();
-
-        // Check required params
         $this->assertEmpty($data);
     }
 }
