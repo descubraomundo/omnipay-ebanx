@@ -1,0 +1,30 @@
+HTTP/1.1 200 OK
+Server: Apache
+Date: Sun, 11 May 2014 21:17:31 GMT
+Content-Type: application/json; charset=utf-8
+Status: 200 OK
+
+{
+    "payment": {
+        "hash": "5476099e890c06ca6f02cae9da1b1faaf3c5929439076cb9",
+        "merchant_payment_code": "1461416920319",
+        "order_number": "146",
+        "status": "CA",
+        "status_date": "2014-11-26 17:34:11",
+        "open_date": "2014-11-25 10:45:56",
+        "confirm_date": null,
+        "transfer_date": null,
+        "amount_br": "204.45",
+        "amount_ext": "204.45",
+        "amount_iof": "0.00",
+        "currency_rate": "1.0000",
+        "currency_ext": "BRL",
+        "due_date": "2014-12-2",
+        "instalments": "1",
+        "payment_type_code": "boleto",
+        "pre_approved": false,
+        "capture_available": null,
+    },
+    "operation": "cancel",
+    "status": "SUCCESS"
+}
