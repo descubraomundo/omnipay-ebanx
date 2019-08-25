@@ -27,7 +27,6 @@ class FetchTransactionRequestTest extends TestCase
         $this->assertSame('https://api.ebanx.com.br/ws/query?merchant_payment_code=' . $this->request->getTransactionId(), $this->request->getEndpoint());
     }
 
-
     public function testGetDataIsEmpty()
     {
         $data    = $this->request->getData();

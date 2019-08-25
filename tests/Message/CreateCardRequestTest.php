@@ -20,8 +20,7 @@ class CreateCardRequestTest extends TestCase
         $this->assertSame('https://api.ebanx.com.br/ws/token', $this->request->getEndpoint());
     }
 
-
-    public function testGetDataIsEmpty()
+    public function testGetData()
     {
         $data    = $this->request->getData();
 

@@ -26,14 +26,14 @@ class ResponseTest extends TestCase
     }
 
     public function testRedirectResquest() {
-        $httpResponse = $this->getMockHttpResponse('AuthorizePaymentPageSuccess.txt');
+        $httpResponse = $this->getMockHttpResponse('PaymentPageSuccess.txt');
         $response = $this->createResponse($httpResponse);
 
         $this->assertTrue($response->isRedirect());
     }
 
     public function testGetRedirectURL() {
-        $httpResponse = $this->getMockHttpResponse('AuthorizePaymentPageSuccess.txt');
+        $httpResponse = $this->getMockHttpResponse('PaymentPageSuccess.txt');
         $response = $this->createResponse($httpResponse);
 
         $this->assertEquals('https://staging.ebanx.com.br/checkout/?hash=5ae0b5d4f1883ed4b214c0277af29f1981443f59a26eef87', $response->getRedirectUrl());
@@ -89,7 +89,7 @@ class ResponseTest extends TestCase
     }
 
     public function testGetMessageOnRedirectAsNull() {
-        $httpResponse = $this->getMockHttpResponse('AuthorizePaymentPageSuccess.txt');
+        $httpResponse = $this->getMockHttpResponse('PaymentPageSuccess.txt');
         $response = $this->createResponse($httpResponse);
 
         $this->assertNull($response->getMessage());
