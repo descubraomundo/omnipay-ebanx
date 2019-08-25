@@ -56,13 +56,10 @@ class CancelRefundRequest extends AbstractRequest
 
     public function getEndpoint()
     {
-        $this->validate('amount', 'transactionReference', 'transactionId', 'description');
+        $this->validate('transactionId');
         $data                          = array_merge($this->getDefaultParameters(), $this->getSplitData());
         $data['operation']             = 'cancel';
-        $data['hash']                  = $this->getTransactionReference();
         $data['merchant_refund_code']  = $this->getTransactionId();
-        $data['amount']                = $this->getAmount();
-        $data['description']           = $this->getDescription();
 
 
         return parent::getEndpoint() . '/refund?' . http_build_query($data, '', '&');

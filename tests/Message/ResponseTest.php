@@ -2,7 +2,7 @@
 
 namespace Omnipay\Ebanx\Message;
 
-use Omnipay\Tests\TestCase;
+use League\Ebanx\Test\TestCase;
 
 class ResponseTest extends TestCase
 {
@@ -26,14 +26,14 @@ class ResponseTest extends TestCase
     }
 
     public function testRedirectResquest() {
-        $httpResponse = $this->getMockHttpResponse('AuthorizePaymentPageRequest.txt');
+        $httpResponse = $this->getMockHttpResponse('PaymentPageSuccess.txt');
         $response = $this->createResponse($httpResponse);
 
         $this->assertTrue($response->isRedirect());
     }
 
     public function testGetRedirectURL() {
-        $httpResponse = $this->getMockHttpResponse('AuthorizePaymentPageRequest.txt');
+        $httpResponse = $this->getMockHttpResponse('PaymentPageSuccess.txt');
         $response = $this->createResponse($httpResponse);
 
         $this->assertEquals('https://staging.ebanx.com.br/checkout/?hash=5ae0b5d4f1883ed4b214c0277af29f1981443f59a26eef87', $response->getRedirectUrl());
@@ -57,7 +57,7 @@ class ResponseTest extends TestCase
         $httpResponse = $this->getMockHttpResponse('AuthorizeBoletoSuccess.txt');
         $response = $this->createResponse($httpResponse);
 
-        $this->assertEquals('af461f512c1', $response->getTransactionId());
+        $this->assertEquals('ecc9be4512a', $response->getTransactionId());
     }
 
     public function testGetTransactionIdAsNull() {
@@ -82,14 +82,14 @@ class ResponseTest extends TestCase
     }
 
     public function testGetMessageOnCard() {
-        $httpResponse = $this->getMockHttpResponse('AuthorizeCardSuccess.txt');
+        $httpResponse = $this->getMockHttpResponse('AuthorizeCreditCardSuccess.txt');
         $response = $this->createResponse($httpResponse);
 
         $this->assertEquals('[OK] Sandbox - Test credit card, transaction captured', $response->getMessage());
     }
 
     public function testGetMessageOnRedirectAsNull() {
-        $httpResponse = $this->getMockHttpResponse('AuthorizePaymentPageRequest.txt');
+        $httpResponse = $this->getMockHttpResponse('PaymentPageSuccess.txt');
         $response = $this->createResponse($httpResponse);
 
         $this->assertNull($response->getMessage());

@@ -8,7 +8,7 @@ Status: 200 OK
     "payment": {
         "hash": "59ad5dd18a6d5ba0e24327c2ba92a730115a80bd58b3baa5",
         "pin": "655158605",
-        "merchant_payment_code": "af461f512c1",
+        "merchant_payment_code": "ecc9be4512a",
         "order_number": null,
         "status": "PE",
         "status_date": null,

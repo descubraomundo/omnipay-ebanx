@@ -9,8 +9,6 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/descubraomundo/omnipay-ebanx.svg?style=flat-square)](https://scrutinizer-ci.com/g/descubraomundo/omnipay-ebanx)
 [![Total Downloads](https://img.shields.io/packagist/dt/descubraomundo/omnipay-ebanx.svg?style=flat-square)](https://packagist.org/packages/descubraomundo/omnipay-ebanx)
 
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-
 [Omnipay](https://github.com/thephpleague/omnipay) is a framework agnostic, multi-gateway payment
 processing library for PHP 5.3+. This package implements Pagar.Me support for Omnipay.
 
