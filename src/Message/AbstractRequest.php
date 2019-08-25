@@ -217,12 +217,12 @@ abstract class AbstractRequest extends BaseAbstractRequest
         return $this->createResponse($payload);
     }
 
-    protected function createResponse($data)
+    public function createResponse($data)
     {
         return $this->response = new Response($this, $data);
     }
 
-    protected function getHeaders()
+    public function getHeaders()
     {
         return [];
     }
@@ -236,7 +236,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
      *
      * @return array
      */
-    protected function getDefaultParameters()
+    public function getDefaultParameters()
     {
         $data                    = array();
         $data['integration_key'] = $this->getIntegrationKey();
@@ -254,7 +254,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
      *
      * @return array
      */
-    protected function getCustomerData()
+    public function getCustomerData()
     {
         $this->validate('card', 'documentNumber');
         $card    = $this->getCard();
@@ -286,7 +286,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
      *
      * @return array
      */
-    protected function getCardData()
+    public function getCardData()
     {
         $card                = $this->getCard();
         $cardReference       = $this->getCardReference();
@@ -318,7 +318,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
      *
      * @return array
      */
-    protected function getBoletoData()
+    public function getBoletoData()
     {
         $this->validate('boletoDueDate');
 
@@ -337,7 +337,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
      *
      * @return array
      */
-    protected function getAddressData()
+    public function getAddressData()
     {
         $card    = $this->getCard();
         $address = array_map('trim', explode(',', $card->getAddress1()));
@@ -364,7 +364,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
      *
      * @return array
      */
-    protected function getSplitData()
+    public function getSplitData()
     {
         $split = $this->getSplit();
         return !empty($split) ? ['split' => $split] : [];
@@ -380,7 +380,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
      *
      * @return array
      */
-    protected function getPaymentData($aditionalPaymentData = [])
+    public function getPaymentData($aditionalPaymentData = [])
     {
         $this->validate('transactionId', 'currency', 'amount', 'paymentMethod');
 
