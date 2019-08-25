@@ -3,10 +3,11 @@
 namespace Omnipay\Ebanx\Message;
 
 use Mockery;
-use Omnipay\Tests\TestCase;
+use League\Ebanx\Test\TestCase;
 
 class AbstractRequestTest extends TestCase
 {
+
     public function setUp()
     {
         $this->request = Mockery::mock('\Omnipay\Ebanx\Message\AbstractRequest')->makePartial();

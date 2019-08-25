@@ -2,10 +2,11 @@
 
 namespace Omnipay\Ebanx\Message;
 
-use Omnipay\Tests\TestCase;
+use League\Ebanx\Test\TestCase;
 
 class CaptureRequestTest extends TestCase
 {
+
     public function setUp()
     {
         $this->request = new CaptureRequest($this->getHttpClient(), $this->getHttpRequest());
