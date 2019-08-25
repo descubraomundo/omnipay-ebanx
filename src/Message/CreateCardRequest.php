@@ -57,8 +57,8 @@ class CreateCardRequest extends AbstractRequest
     {
         $this->validate('card');
 
-        $data = array_merge($this->getDefaultParameters(), $this->getCardData());
-        $data['country'] = $this->getCard()->getCountry();
+        $data                      = array_merge($this->getDefaultParameters(), $this->getCardData());
+        $data['country']           = $this->getCard()->getCountry();
         $data['payment_type_code'] = $this->getCard()->getBrand();
 
         return $data;
