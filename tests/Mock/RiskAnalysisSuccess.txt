@@ -1,0 +1,45 @@
+HTTP/1.1 200 OK
+Server: Apache
+Date: Sun, 11 May 2014 21:17:31 GMT
+Content-Type: application/json; charset=utf-8
+Status: 200 OK
+
+{
+  "payment": {
+    "hash": "5d643729ca2085b0210897564c680643c4e7e9aef31e77e7",
+    "pin": "798605233",
+    "country": "br",
+    "merchant_payment_code": "a1415eab-6e3c-4d60-a01d-05d523b3665d",
+    "order_number": "fbaec5e",
+    "status": "PE",
+    "status_date": null,
+    "open_date": "2019-08-26 19:46:49",
+    "confirm_date": null,
+    "transfer_date": null,
+    "amount_br": "23.02",
+    "amount_ext": "23.02",
+    "amount_iof": "0.00",
+    "currency_rate": "1.0000",
+    "currency_ext": "BRL",
+    "due_date": "2019-08-29",
+    "instalments": "1",
+    "payment_type_code": "elo",
+    "details": {
+      "billing_descriptor": "EBANX"
+    },
+    "transaction_status": {
+      "acquirer": "EBANX",
+      "code": "OK",
+      "description": "Accepted",
+      "authcode": "36087"
+    },
+    "pre_approved": true,
+    "capture_available": true,
+    "risk_analysis": {
+      "score": 2,
+      "fraud_indicators": [],
+      "recommendation": "approve"
+    }
+  },
+  "status": "SUCCESS"
+}

@@ -200,5 +200,18 @@ class ResponseTest extends TestCase
         $this->assertEquals($refunds, $response->getRefunds());
     }
 
+    public function testGetRiskAnalysis() {
+        $httpResponse = $this->getMockHttpResponse('RiskAnalysisSuccess.txt');
+        $response     = $this->createResponse($httpResponse);
+        $riskAnalysis = $response->getRiskAnalysis();
+
+        $this->assertArrayHasKey('score', $riskAnalysis);
+        $this->assertEquals('2', $riskAnalysis['score']);
+        $this->assertArrayHasKey('fraud_indicators', $riskAnalysis);
+        $this->assertEmpty($riskAnalysis['fraud_indicators']);
+        $this->assertArrayHasKey('recommendation', $riskAnalysis);
+        $this->assertEquals('approve', $riskAnalysis['recommendation']);
+    }
+
 }
 
