@@ -213,5 +213,13 @@ class ResponseTest extends TestCase
         $this->assertEquals('approve', $riskAnalysis['recommendation']);
     }
 
+    public function testGetRiskAnalysisOnBoleto() {
+        $httpResponse = $this->getMockHttpResponse('AuthorizeBoletoSuccess.txt');
+        $response     = $this->createResponse($httpResponse);
+        $riskAnalysis = $response->getRiskAnalysis();
+
+        $this->assertNull($riskAnalysis);
+    }
+
 }
 
