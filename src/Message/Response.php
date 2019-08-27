@@ -193,4 +193,22 @@ class Response extends AbstractResponse
 
         return $this->getPaymentData('refunds');
     }
+
+
+    /**
+     * Get the risk analysis in the transaction object.
+     *
+     * @return array|null the boleto_url, boleto_barcode and boleto_expiration_date
+     */
+    public function getRiskAnalysis()
+    {
+        $data = null;
+
+        if (isset($this->data['payment']['risk_analysis'])) {
+            $data = $this->data['payment']['risk_analysis'];
+        }
+
+        return $data;
+    }
+
 }
